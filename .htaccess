@@ -1,0 +1,6 @@
+RewriteEngine on
+RewriteCond %{SERVER_PORT} 80 [OR]
+RewriteCond %{HTTP_HOST} ^spacetracker\.fr$ [NC]
+RewriteRule ^(.*) https://www.spacetracker.fr/$1 [QSA,L,R=301]
+#permet aux navigateurs de se souvenir qu'il doit passer en https pour votre site (HSTS)
+Header set Strict-Transport-Security "max-age=15811200" env=HTTPS
